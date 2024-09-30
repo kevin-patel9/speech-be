@@ -11,7 +11,7 @@ connectDB();
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.json({ limit: "1mb" }));
-const whitelist = ["http://localhost:3000"];
+const whitelist = ["http://localhost:3000", "https://speech-be.onrender.com"];
 const corsOptions = {
     origin: function (origin, callback) {
         if (!origin || whitelist.includes(origin)) {
