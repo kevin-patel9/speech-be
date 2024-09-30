@@ -50,4 +50,18 @@ exports.loginToken = async (req, res) => {
             message: err.message,
         });
     }
+};
+
+exports.checkIfUserExist = async (req, res) => {
+    try {
+        let { uid } = req.body;
+
+        const user = await UserModel.findOne({ uid });
+
+        return res.status(200).send({ user });
+    } catch (err) {
+        return res.status(500).send({
+            message: err.message,
+        });
+    }
 };  
